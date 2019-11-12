@@ -12,17 +12,27 @@ test('Display renders correctly', () => {
 // - when `locked` or `closed` use the `red-led` class
 // - when `unlocked` or `open` use the `green-led` class
 
-test('displays red led class', () => {
-    const { findByText } = render(
-        <Display locked={true} open={true} />
+test('displays green led class', () => {
+    const { getByText } = render(
+        <Display locked={false} closed={false} />
     );
 
-    const unlockedMessage = findByText(/unlocked/i);
-    expect(unlockedMessage).toBeTruthy();
+    const unlocked = getByText(/unlocked/i);
+    const open = getByText(/open/i);
+    expect(unlocked.className).toMatch("green-led");
+    expect(open.className).toMatch("green-led");
 
-    // const closedClass = getByClassName(/red-led/i);
-    // expect(closedClass).toBeTruthy();
+})
 
+test('displays red led class', () => {
+    const { getByText } = render(
+        <Display locked={true} closed={true} />
+    );
+
+    const locked = getByText(/locked/i);
+    const closed = getByText(/closed/i);
+    expect(locked.className).toMatch("red-led");
+    expect(closed.className).toMatch("red-led");
 
 })
 

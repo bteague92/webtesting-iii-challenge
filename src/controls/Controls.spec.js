@@ -12,7 +12,7 @@ test('Controls renders correctly', () => {
 // - the closed toggle button is disabled if the gate is locked
 // - the locked toggle button is disabled if the gate is open
 
-test('open button is disabled when gate is locked', async () => {
+test('open button is disabled when gate is locked', () => {
     const toggleOpenMock = jest.fn();
 
     const { getByText } = render(
@@ -24,7 +24,7 @@ test('open button is disabled when gate is locked', async () => {
     expect(toggleOpenMock).toHaveBeenCalledTimes(0);
 });
 
-test('lock button is disabled if gate is open', async () => {
+test('lock button is disabled if gate is open', () => {
     const toggleLockMock = jest.fn();
 
     const { getByText } = render(
@@ -36,7 +36,7 @@ test('lock button is disabled if gate is open', async () => {
     expect(toggleLockMock).toHaveBeenCalledTimes(0);
 });
 
-test('able to close gate when gate is set to open', async () => {
+test('able to close gate when gate is set to open', () => {
     const toggleClosedMock = jest.fn();
 
     const { getByText } = render(
@@ -46,12 +46,12 @@ test('able to close gate when gate is set to open', async () => {
     const closeButton = getByText(/close gate/i);
     expect(closeButton).toBeTruthy();
 
-    await fireEvent.click(getByText(/close gate/i));
+    fireEvent.click(getByText(/close gate/i));
 
     expect(toggleClosedMock).toHaveBeenCalled();
 });
 
-test('able to open gate when gate is set to closed', async () => {
+test('able to open gate when gate is set to closed', () => {
     const toggleClosedMock = jest.fn();
 
     const { getByText } = render(
@@ -61,12 +61,12 @@ test('able to open gate when gate is set to closed', async () => {
     const openButton = getByText(/open gate/i);
     expect(openButton).toBeTruthy();
 
-    await fireEvent.click(getByText(/open gate/i));
+    fireEvent.click(getByText(/open gate/i));
 
     expect(toggleClosedMock).toHaveBeenCalled();
 });
 
-test('able to lock gate when gate is closed and unlocked', async () => {
+test('able to lock gate when gate is closed and unlocked', () => {
     const toggleLockedMock = jest.fn();
 
     const { getByText } = render(
@@ -76,13 +76,13 @@ test('able to lock gate when gate is closed and unlocked', async () => {
     const lockButton = getByText(/lock gate/i);
     expect(lockButton).toBeTruthy();
 
-    await fireEvent.click(getByText(/lock gate/i));
+    fireEvent.click(getByText(/lock gate/i));
 
     expect(toggleLockedMock).toHaveBeenCalled();
 
 });
 
-test('able to unlock gate when gate is closed and locked', async () => {
+test('able to unlock gate when gate is closed and locked', () => {
     const toggleUnlockedMock = jest.fn();
 
     const { getByText } = render(
@@ -92,7 +92,7 @@ test('able to unlock gate when gate is closed and locked', async () => {
     const unlockButton = getByText(/unlock gate/i);
     expect(unlockButton).toBeTruthy();
 
-    await fireEvent.click(getByText(/unlock gate/i));
+    fireEvent.click(getByText(/unlock gate/i));
 
     expect(toggleUnlockedMock).toHaveBeenCalled();
 
