@@ -7,6 +7,7 @@ Object {
     <div>
       <div
         class="display panel"
+        data-testid="displayTest"
       >
         <div
           class="led green-led"
@@ -21,6 +22,7 @@ Object {
       </div>
       <div
         class="controls panel"
+        data-testid="controlsTest"
       >
         <button
           class="toggle-btn"
@@ -39,6 +41,7 @@ Object {
   "container": <div>
     <div
       class="display panel"
+      data-testid="displayTest"
     >
       <div
         class="led green-led"
@@ -53,6 +56,7 @@ Object {
     </div>
     <div
       class="controls panel"
+      data-testid="controlsTest"
     >
       <button
         class="toggle-btn"

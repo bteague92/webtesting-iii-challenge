@@ -12,7 +12,19 @@ test('Display renders correctly', () => {
 // - when `locked` or `closed` use the `red-led` class
 // - when `unlocked` or `open` use the `green-led` class
 
+test('displays red led class', () => {
+    const { findByText } = render(
+        <Display locked={true} open={true} />
+    );
 
+    const unlockedMessage = findByText(/unlocked/i);
+    expect(unlockedMessage).toBeTruthy();
+
+    // const closedClass = getByClassName(/red-led/i);
+    // expect(closedClass).toBeTruthy();
+
+
+})
 
 test('displays unlocked and closed text', () => {
     const { findByText } = render(
